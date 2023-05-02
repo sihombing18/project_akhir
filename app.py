@@ -2,7 +2,7 @@ import os
 from os.path import join, dirname
 from dotenv import load_dotenv
 
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_jsonify, request
 from pymongo import MongoClient
 from datetime import datetime
 
@@ -20,7 +20,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_('index.html')
 
 @app.route('/diary', methods=['GET'])
 def show_diary():
